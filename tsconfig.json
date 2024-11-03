@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",                     // Set the ECMAScript target version
+    "module": "commonjs",                   // Use CommonJS module system
+    "rootDir": "./src",                     // Root directory of TypeScript source files
+    "outDir": "./dist",                     // Output directory for compiled JavaScript files
+    "strict": true,                         // Enable all strict type-checking options
+    "esModuleInterop": true,                // Allow default imports from CommonJS modules
+    "forceConsistentCasingInFileNames": true, // Disallow inconsistently-cased references
+    "skipLibCheck": true,                   // Skip type checking of declaration files
+    "resolveJsonModule": true,              // Include JSON files in module resolution
+    "sourceMap": true,                      // Generate source maps for debugging
+    "noImplicitAny": true                   // Ensure no implicit 'any' type
+  },
+  "include": ["src"],                       // Include files in the "src" directory
+  "exclude": ["node_modules", "dist"]       // Exclude files in "node_modules" and "dist"
+}
