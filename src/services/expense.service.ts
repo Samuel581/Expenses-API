@@ -2,13 +2,14 @@ import {Prisma, PrismaClient} from "@prisma/client";
 
 const prisma = new PrismaClient({log: ['query', 'info', 'warn', 'error']});
 
-export const createExpense = async(data: {ownerId: string, description: string, amount: number, category: string}) => {
-    const {ownerId, description, amount, category} = data;
+export const createExpense = async(data: {ownerId: string, description: string, amount: number, category: string, expenseDate: Date}) => {
+    const {ownerId, description, amount, category, expenseDate} = data;
     const newExpense = prisma.expense.create({
         data: {
             description,
             amount,
             category,
+            expenseDate,
             owner : {
                 connect: {id: ownerId}
             }
@@ -17,7 +18,7 @@ export const createExpense = async(data: {ownerId: string, description: string, 
     return newExpense;
 }
 
-export const updateExpense = async(id: string , ownerId: string, data: Partial<{description: string,amount: number, category: string}>) => {
+export const updateExpense = async(id: string , ownerId: string, data: Partial<{description: string,amount: number, category: string, date: Date}>) => {
     const updatedTask = await prisma.expense.update({
         where: {id, ownerId},
         data: {
