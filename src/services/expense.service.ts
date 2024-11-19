@@ -1,4 +1,4 @@
-import {Prisma, PrismaClient} from "@prisma/client";
+import {PrismaClient} from "@prisma/client";
 
 const prisma = new PrismaClient({log: ['query', 'info', 'warn', 'error']});
 
@@ -29,17 +29,24 @@ export const updateExpense = async(id: string , ownerId: string, data: Partial<{
 }
 
 export const deleteExpense = async(id: string, ownerId: string) => {
-    const deletedExpense = await prisma.expense.delete({
+    return prisma.expense.delete({
         where: {id, ownerId},
-    })
-    return deletedExpense;
+    });
 }
 
 export const getExpenses = async(data: {ownerId: string}) => {
     const {ownerId} = data;
-    console.log(ownerId);
     const getAllExpenses = await prisma.expense.findMany({
         where: {ownerId}
     })
-    return getAllExpenses;
+    return {
+        data: getAllExpenses.length ? getAllExpenses : [],
+        message: getAllExpenses.length ? "" : "No Expenses Found",
+    };
 }
+
+export const getExpense = async (id: string)=> {
+    return prisma.expense.findUnique({
+        where: {id}
+    });
+};

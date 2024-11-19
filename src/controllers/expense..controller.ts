@@ -45,3 +45,15 @@ export const getAllExpenses = async(req: Request, res: Response) => {
         res.status(400).json({ message });
     }
 }
+
+export const getExpense = async (req: Request, res: Response) => {
+    try {
+        const {id} = req.params;
+        const uniqueExpense = await expenseService.getExpense(id);
+        res.status(200).send(uniqueExpense);
+    }
+    catch (error) {
+        const { message } = error as Error;
+        res.status(400).json({ message });
+    }
+}
