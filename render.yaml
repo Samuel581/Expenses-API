@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: expenses-api
+    runtime: node
+    buildCommand: yarn install && yarn build
+    startCommand: yarn start
+    envVars:
+      - key: DATABASE_URL
+        value: "mongodb+srv://dev_user:hhl40IWrPojIppPu@cluster0.mayg9.mongodb.net/expense-db"
+      - key: JTW_SECRET
+        value: "35LwQFE!9mpyBK"
+        sync: false

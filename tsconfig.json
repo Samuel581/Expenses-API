@@ -10,7 +10,9 @@
     "skipLibCheck": true,                   // Skip type checking of declaration files
     "resolveJsonModule": true,              // Include JSON files in module resolution
     "sourceMap": true,                      // Generate source maps for debugging
-    "noImplicitAny": true                   // Ensure no implicit 'any' type
+    "noImplicitAny": true,                  // Ensure no implicit 'any' type
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   },
   "include": ["src"],                       // Include files in the "src" directory
   "exclude": ["node_modules", "dist"]       // Exclude files in "node_modules" and "dist"
