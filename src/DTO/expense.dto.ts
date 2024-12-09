@@ -1,18 +1,18 @@
 import {IsNumber, IsNotEmpty, isDate, isEnum, IsString, Min, IsEnum, IsOptional} from "class-validator";
 
 export enum ExpenseCategory {
-    BILLS = "Bills",
-    FOOD = "Food",
-    LEISURE = "Leisure",
-    ELECTRONICS = "Electronics",
-    UTILITIES = "Utilities",
-    CLOTHING = "Clothing",
-    HEALTH = "Health",
-    OTHERS = "Others",
-    TRANSPORT = "Transport",
-    EDUCATION = "Education",
-    GIFTS = "Gifts",
-    SAVINGS = "Savings",
+    BILLS = "bills",
+    FOOD = "food",
+    LEISURE = "leisure",
+    ELECTRONICS = "electronics",
+    UTILITIES = "utilities",
+    CLOTHING = "clothing",
+    HEALTH = "health",
+    OTHERS = "others",
+    TRANSPORT = "transport",
+    EDUCATION = "education",
+    GIFTS = "gifts",
+    SAVINGS = "savings",
 }
 
 export class CreateExpenseDTO {
